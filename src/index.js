@@ -13,11 +13,11 @@ import thunk from 'redux-thunk';
 // logger from redux-logger
 import logger from 'redux-logger';
 // rootReducer from ./reducers
-
+import { composeWithDevTools } from 'redux-devtools-extension';
 const store = createStore(
 	rootReducer,
 	/* applyMiddleware goes here */
-	applyMiddleware(logger, thunk),
+	composeWithDevTools(applyMiddleware(thunk, logger)),
 );
 
 ReactDOM.render(
